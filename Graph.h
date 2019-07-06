@@ -46,6 +46,7 @@ struct MVGraph{
 	
 	//~ int load_graph(int size, std::vector<std::pair<int,int> >& edgelist);
 	//~ int load_graph(edgelist<int>& l);
+        void init (const std::vector< std::pair< unsigned long, unsigned long > >& matching);
 	void greedy_init();
 	MVGraph():edges(0),edges_size(0),matchnum(0),bridgenum(0),todonum(0) { }
 	MVGraph(graph& g); /* default mode of construction is to convert a simple graph class */

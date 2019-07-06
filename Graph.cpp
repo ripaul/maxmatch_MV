@@ -60,6 +60,14 @@ void MVGraph::reset() {
 	}
 }
 
+void MVGraph::init (const std::vector< std::pair< unsigned long, unsigned long > >& matching) {
+        for(unsigned long i = 0; i < matching.size(); ++i) {
+                nodes[matching[i].first].match = matching[i].second;
+                // only increase on 'forward' edges
+                if (matching[i].first < matching[i].second) matchnum++;
+        }
+}
+
 void MVGraph::greedy_init() {
 	for(nodeid j = 0; j < nodes.size(); j++) {
 		MVNode& n = nodes[j];
